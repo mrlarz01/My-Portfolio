@@ -99,7 +99,7 @@ npm start
 
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:5000
-- **Admin Panel**: http://localhost:3001
+- **Admin Panel**: http://localhost:4000
 
 ## Features Overview
 
