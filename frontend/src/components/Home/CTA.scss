@@ -1,0 +1,41 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.cta {
+  background: $primary;
+  color: $white;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-family: $font-heading;
+  font-size: $font-size-h2;
+  color: $white;
+  margin-bottom: $spacing-lg;
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: $spacing-2xl;
+  line-height: 1.8;
+}
+
+.cta-button {
+  background: $dark-secondary;
+  color: $primary;
+  font-weight: 600;
+  padding: $spacing-lg $spacing-2xl;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+}
+

@@ -1,0 +1,50 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.contact-page {
+  width: 100%;
+}
+
+.contact-header {
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, rgba(0, 210, 211, 0.05) 100%);
+  text-align: center;
+  padding: $spacing-4xl 0;
+
+  .page-title {
+    font-size: 3rem;
+    margin-bottom: $spacing-md;
+    color: $text-primary;
+
+    @include respond-to(md) {
+      font-size: $font-size-h1;
+    }
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.contact-content {
+  background: $dark;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-4xl;
+
+  @include respond-to(lg) {
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-4xl;
+  }
+}
+
+.contact-form-section,
+.contact-info-section {
+  width: 100%;
+}
+

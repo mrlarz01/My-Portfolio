@@ -1,0 +1,89 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.about-preview {
+  background: $dark;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+  align-items: center;
+
+  @include respond-to(lg) {
+    grid-template-columns: 1.2fr 1fr;
+    gap: $spacing-4xl;
+  }
+}
+
+.about-image {
+  .image-placeholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    background: rgba(112, 101, 239, 0.1);
+    @include flex-center;
+    border: 2px dashed rgba(108, 92, 231, 0.3);
+    margin: 0 auto;
+
+    span {
+      font-family: $font-heading;
+      font-size: $font-size-h4;
+      color: $primary;
+      opacity: 0.5;
+    }
+  }
+}
+
+.about-text {
+  .section-title {
+    @include section-title;
+    text-align: left;
+    margin-bottom: $spacing-xl;
+  }
+
+  .about-description {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.skills-container {
+  margin-top: $spacing-2xl;
+
+  h3 {
+    font-family: $font-heading;
+    font-size: $font-size-h4;
+    color: $text-primary;
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.skill-badge {
+  padding: $spacing-md $spacing-lg;
+  background: rgba(108, 92, 231, 0.1);
+  border: 1px solid rgba(108, 92, 231, 0.2);
+  border-radius: 8px;
+  font-size: $font-size-body;
+  color: $primary;
+  font-weight: 500;
+  transition: all $duration-normal ease;
+
+  &:hover {
+    background: $primary;
+    color: $white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+  }
+}
+

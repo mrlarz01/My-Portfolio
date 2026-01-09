@@ -1,0 +1,24 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.resume-summary {
+  margin-bottom: $spacing-4xl;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .section-title {
+    @include section-title;
+    margin-bottom: $spacing-xl;
+    text-align: center;
+  }
+
+  .summary-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+    text-align: left;
+  }
+}
+

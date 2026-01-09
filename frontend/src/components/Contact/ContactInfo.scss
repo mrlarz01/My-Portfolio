@@ -1,0 +1,68 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.contact-info {
+  margin-bottom: $spacing-3xl;
+
+  .info-title {
+    font-family: $font-heading;
+    font-size: $font-size-h2;
+    color: $text-primary;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  background: $light;
+  border-radius: 12px;
+  transition: all $duration-normal ease;
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    background: rgba(108, 92, 231, 0.05);
+    transform: translateX(5px);
+  }
+
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    @include flex-center;
+    background: $primary;
+    border-radius: 12px;
+    color: $white;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  .contact-label {
+    font-size: $font-size-small;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  .contact-value {
+    font-size: $font-size-body;
+    color: $text-primary;
+    font-weight: 500;
+  }
+}
+

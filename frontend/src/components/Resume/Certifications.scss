@@ -1,0 +1,57 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.certifications {
+  margin-bottom: $spacing-4xl;
+
+  .section-title {
+    @include section-title;
+    margin-bottom: $spacing-3xl;
+  }
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.certification-card {
+  @include card;
+  text-align: center;
+  padding: $spacing-2xl;
+
+  .cert-icon {
+    font-size: 3rem;
+    color: $primary;
+    margin-bottom: $spacing-lg;
+  }
+
+  .cert-title {
+    font-family: $font-heading;
+    font-size: $font-size-h4;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  .cert-issuer {
+    font-size: $font-size-body;
+    color: $text-secondary;
+    margin-bottom: $spacing-sm;
+  }
+
+  .cert-year {
+    display: inline-block;
+    padding: $spacing-sm $spacing-md;
+    background: rgba(108, 92, 231, 0.1);
+    border-radius: 20px;
+    font-size: $font-size-small;
+    color: $primary;
+    font-weight: 500;
+  }
+}
+

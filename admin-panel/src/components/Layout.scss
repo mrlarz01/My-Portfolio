@@ -1,0 +1,199 @@
+@import '../styles/variables.scss';
+
+$sidebar-width: 250px;
+$sidebar-collapsed: 70px;
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background: $dark;
+}
+
+.sidebar {
+  width: $sidebar-width;
+  background: $primary;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, width 0.3s ease;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    width: $sidebar-collapsed;
+    transform: translateX(0);
+    
+    .sidebar-header h2,
+    .admin-badge,
+    .nav-item span,
+    .logout-button span {
+      display: none;
+    }
+
+    .sidebar-header {
+      justify-content: center;
+    }
+  }
+
+  &.closed {
+    width: $sidebar-collapsed;
+
+    .sidebar-header h2,
+    .nav-item span,
+    .logout-button span {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      width: $sidebar-collapsed;
+    }
+  }
+
+  .sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+      justify-content: center;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .admin-badge {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
+  .sidebar-nav {
+    flex: 1;
+    padding: 1rem 0;
+    overflow-y: auto;
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-left: 3px solid transparent;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        padding: 1rem;
+        
+        span {
+          display: none;
+        }
+      }
+
+      &:hover,
+      &.active {
+        background: rgba(255, 255, 255, 0.1);
+        border-left-color: white;
+        color: white;
+      }
+
+      svg {
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .logout-button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+      padding: 1rem;
+      margin: 1rem 0.5rem;
+      
+      span {
+        display: none;
+      }
+    }
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    svg {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  margin-left: $sidebar-width;
+  transition: margin-left 0.3s ease;
+
+  @media (max-width: 768px) {
+    margin-left: $sidebar-collapsed;
+    width: calc(100% - #{$sidebar-collapsed});
+  }
+
+  .sidebar.closed ~ & {
+    margin-left: $sidebar-collapsed;
+
+    @media (max-width: 768px) {
+      margin-left: $sidebar-collapsed;
+    }
+  }
+}
+
+.content-wrapper {
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+// Mobile menu toggle button - hidden since sidebar is always visible with icons
+.mobile-menu-toggle {
+  display: none;
+}
+
+// Overlay for mobile sidebar - not needed since sidebar is always visible
+.sidebar-overlay {
+  display: none;
+}
+

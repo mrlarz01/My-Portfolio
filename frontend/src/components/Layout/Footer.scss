@@ -1,0 +1,120 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.footer {
+  background: $dark;
+  color: $white;
+  padding: $spacing-4xl 0 $spacing-xl;
+  margin-top: $spacing-4xl;
+}
+
+.footer-container {
+  @include section-container;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-2xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer-brand {
+  .footer-logo {
+    font-family: $font-heading;
+    font-size: $font-size-h4;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: $spacing-md;
+    
+    .logo-text {
+      color: $primary;
+    }
+    
+  .logo-accent {
+    color: $primary;
+  }
+  }
+
+  .footer-tagline {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+}
+
+.footer-links,
+.footer-contact,
+.footer-social {
+  h4 {
+    color: $white;
+    font-size: $font-size-h4;
+    margin-bottom: $spacing-lg;
+    font-weight: 600;
+  }
+
+  ul {
+    list-style: none;
+    
+    li {
+      margin-bottom: $spacing-sm;
+      
+      a {
+        color: rgba(255, 255, 255, 0.7);
+        transition: color $duration-normal ease;
+        
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: $spacing-sm;
+  }
+}
+
+.social-icons {
+  display: flex;
+  gap: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  @include flex-center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: $white;
+  font-size: 1.2rem;
+  transition: all $duration-normal ease;
+
+  &:hover {
+    background: $primary;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.4);
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: $spacing-lg;
+  text-align: center;
+
+  p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: $font-size-small;
+    margin: 0;
+  }
+}
+

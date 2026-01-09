@@ -1,0 +1,65 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.services {
+  background: $dark;
+
+  .section-title {
+    text-align: center !important;
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-card {
+  @include card;
+  text-align: center;
+  padding: $spacing-2xl;
+  transition: all $duration-normal ease;
+
+  &:hover {
+    .service-icon {
+      transform: translateY(-5px) scale(1.1);
+      background: $primary;
+      color: $white;
+    }
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto $spacing-lg;
+    background: rgba(112, 101, 239, 0.15);
+    border-radius: 50%;
+    @include flex-center;
+    font-size: 2rem;
+    color: $primary;
+    transition: all $duration-normal ease;
+  }
+
+  .service-title {
+    font-family: $font-heading;
+    font-size: $font-size-h4;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  .service-description {
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+

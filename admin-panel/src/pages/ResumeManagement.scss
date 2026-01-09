@@ -1,0 +1,430 @@
+@import '../styles/variables.scss';
+
+.resume-management {
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: $text-primary;
+      margin: 0;
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+
+    &.success {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4caf50;
+    }
+
+    &.error {
+      background: rgba(255, 107, 107, 0.2);
+      color: #ff6b6b;
+    }
+  }
+}
+
+.resume-sections {
+  background: $dark-secondary;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.section-tabs {
+  display: flex;
+  background: $dark-tertiary;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @media (max-width: 768px) {
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background: rgba(112, 101, 239, 0.5);
+      border-radius: 2px;
+    }
+  }
+
+  button {
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border: none;
+    color: $text-secondary;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+
+    @media (max-width: 768px) {
+      padding: 0.875rem 1rem;
+      font-size: 0.9375rem;
+    }
+
+    &:hover {
+      color: $text-primary;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    &.active {
+      color: $primary;
+      border-bottom-color: $primary;
+      background: rgba(112, 101, 239, 0.1);
+    }
+  }
+}
+
+.section-content {
+  padding: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+.section-panel {
+  h2 {
+    color: $text-primary;
+    margin-bottom: 1.5rem;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 1rem;
+    background: $dark-tertiary;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: $text-primary;
+    font-size: 1rem;
+    font-family: $font-body;
+    resize: vertical;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba(112, 101, 239, 0.1);
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn-add {
+  padding: 0.5rem 1rem;
+  background: $primary;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background: lighten($primary, 5%);
+    transform: translateY(-2px);
+  }
+}
+
+.item-card {
+  background: $dark-tertiary;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: $dark;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    color: $text-primary;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: $primary;
+      box-shadow: 0 0 0 3px rgba(112, 101, 239, 0.1);
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    font-family: $font-body;
+  }
+
+  input[type='number'] {
+    width: 100%;
+  }
+
+  input[type='color'] {
+    width: 60px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .btn-delete {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+
+    &:hover {
+      background: rgba(255, 107, 107, 0.3);
+    }
+  }
+}
+
+.loading-state {
+  text-align: center;
+  padding: 3rem;
+  color: $text-secondary;
+}
+
+.section-description {
+  color: $text-secondary;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.pdf-upload-section {
+  .upload-area {
+    background: $dark-tertiary;
+    border: 2px dashed rgba(112, 101, 239, 0.3);
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+    transition: all 0.3s;
+
+    @media (max-width: 768px) {
+      padding: 2rem 1rem;
+    }
+
+    &:hover {
+      border-color: rgba(112, 101, 239, 0.5);
+      background: rgba(112, 101, 239, 0.05);
+    }
+
+    .upload-icon {
+      font-size: 3rem;
+      color: $primary;
+      margin-bottom: 1rem;
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    h3 {
+      color: $text-primary;
+      margin-bottom: 0.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 1.125rem;
+      }
+    }
+
+    p {
+      color: $text-secondary;
+      margin-bottom: 1.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.875rem;
+      }
+    }
+
+    .btn-upload {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: $primary;
+      color: white;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 1rem;
+
+      @media (max-width: 768px) {
+        padding: 0.75rem 1.5rem;
+      }
+
+      &:hover {
+        background: lighten($primary, 5%);
+        transform: translateY(-2px);
+      }
+    }
+
+    small {
+      display: block;
+      color: $text-secondary;
+      font-size: 0.875rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+}
+
+.pdf-uploaded {
+  background: $dark-tertiary;
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .pdf-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      gap: 1rem;
+    }
+
+    .pdf-icon {
+      font-size: 3rem;
+      color: #e74c3c;
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+
+    .pdf-details {
+      h3 {
+        color: $text-primary;
+        margin: 0 0 0.5rem 0;
+        font-size: 1.25rem;
+
+        @media (max-width: 768px) {
+          font-size: 1.125rem;
+        }
+      }
+
+      p {
+        color: $text-secondary;
+        margin: 0 0 0.75rem 0;
+
+        @media (max-width: 768px) {
+          font-size: 0.875rem;
+        }
+      }
+
+      .preview-link {
+        color: $primary;
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .btn-delete-pdf {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s;
+    white-space: nowrap;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      justify-content: center;
+    }
+
+    &:hover {
+      background: rgba(255, 107, 107, 0.3);
+    }
+  }
+}

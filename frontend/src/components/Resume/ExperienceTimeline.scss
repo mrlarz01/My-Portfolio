@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.experience-timeline {
+  margin-bottom: $spacing-4xl;
+
+  .section-title {
+    @include section-title;
+    margin-bottom: $spacing-3xl;
+  }
+
+  .timeline-responsibilities {
+    list-style: none;
+    padding: 0;
+    margin-top: $spacing-md;
+
+    li {
+      position: relative;
+      padding-left: $spacing-xl;
+      margin-bottom: $spacing-sm;
+      font-size: $font-size-body;
+      color: $text-secondary;
+      line-height: 1.6;
+
+      &::before {
+        content: '▸';
+        position: absolute;
+        left: 0;
+        color: $primary;
+        font-weight: bold;
+      }
+    }
+  }
+}
+

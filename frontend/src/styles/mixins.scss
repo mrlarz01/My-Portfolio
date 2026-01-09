@@ -1,0 +1,150 @@
+@import './variables.scss';
+
+// Responsive Breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+  @if $breakpoint == 2xl {
+    @media (min-width: $breakpoint-2xl) { @content; }
+  }
+}
+
+// Flexbox Center
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flexbox Space Between
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Button Base Styles
+@mixin button-base {
+  padding: $spacing-md $spacing-xl;
+  border: none;
+  border-radius: 8px;
+  font-family: $font-heading;
+  font-size: $font-size-body;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all $duration-normal ease;
+  text-decoration: none;
+  display: inline-block;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Primary Button
+@mixin button-primary {
+  @include button-base;
+  background: $primary;
+  color: $white;
+  
+  &:hover {
+    background: lighten($primary, 5%);
+    box-shadow: 0 8px 20px rgba(112, 101, 239, 0.3);
+  }
+}
+
+// Secondary Button
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  border: 2px solid $primary;
+  color: $primary;
+  
+  &:hover {
+    background: $primary;
+    color: $white;
+  }
+}
+
+// Card Styles
+@mixin card {
+  background: $dark-secondary;
+  border-radius: 12px;
+  padding: $spacing-xl;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all $duration-normal ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+    background: $dark-tertiary;
+  }
+}
+
+// Section Container
+@mixin section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+  
+  @include respond-to(lg) {
+    padding: 0 $spacing-xl;
+  }
+}
+
+// Section Title
+@mixin section-title {
+  font-family: $font-heading;
+  font-size: $font-size-h2;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $spacing-2xl;
+  text-align: center;
+  
+  @include respond-to(md) {
+    font-size: $font-size-h2;
+    text-align: left;
+  }
+}
+
+// Fade In Animation
+@mixin fade-in {
+  opacity: 0;
+  animation: fadeIn $duration-slow ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+// Slide Up Animation
+@mixin slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp $duration-slow ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

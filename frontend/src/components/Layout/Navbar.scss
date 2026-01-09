@@ -1,0 +1,245 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-fixed;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all $duration-normal ease;
+  padding: $spacing-md 0;
+  border-bottom: 1px solid rgba(112, 101, 239, 0.1);
+
+  &.scrolled {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    padding: $spacing-sm 0;
+  }
+}
+
+.navbar-container {
+  @include section-container;
+  @include flex-between;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  
+  .logo-image {
+    height: 100%;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    transition: transform $duration-normal ease;
+  }
+  
+  &:hover {
+    .logo-image {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: $spacing-xl;
+  align-items: center;
+
+  @include respond-to(md) {
+    position: static;
+    flex-direction: row;
+    background: none;
+    padding: 0;
+  }
+
+  @media (max-width: $breakpoint-md - 1px) {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: $dark-secondary;
+    padding: $spacing-xl;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform $duration-normal ease;
+    gap: $spacing-lg;
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+}
+
+.navbar-item {
+  margin: 0;
+  position: relative;
+
+  &.has-dropdown {
+    &:hover .navbar-dropdown {
+      display: block;
+    }
+  }
+}
+
+.navbar-link {
+  font-family: $font-body;
+  font-size: $font-size-body;
+  font-weight: 500;
+  color: $text-primary;
+  position: relative;
+  padding: $spacing-sm 0;
+  transition: color $duration-normal ease;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+
+  .dropdown-arrow {
+    font-size: 0.7rem;
+    transition: transform $duration-normal ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $primary;
+    transition: width $duration-normal ease;
+  }
+
+  &:hover,
+  &.active {
+    color: $primary;
+
+    &::after {
+      width: 100%;
+    }
+
+    .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: $dark-secondary;
+  border: 1px solid rgba(112, 101, 239, 0.2);
+  border-radius: 8px;
+  padding: $spacing-sm 0;
+  margin-top: $spacing-sm;
+  min-width: 200px;
+  list-style: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: $z-dropdown;
+
+  @media (max-width: $breakpoint-md - 1px) {
+    position: static;
+    margin-top: $spacing-sm;
+    margin-left: $spacing-lg;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  .dropdown-link {
+    display: block;
+    padding: $spacing-sm $spacing-lg;
+    color: $text-primary;
+    font-size: $font-size-body;
+    font-weight: 400;
+    transition: all $duration-normal ease;
+    text-decoration: none;
+
+    @media (max-width: $breakpoint-md - 1px) {
+      padding: $spacing-sm $spacing-md;
+      color: $text-secondary;
+    }
+
+    &:hover,
+    &.active {
+      background: rgba(112, 101, 239, 0.1);
+      color: $primary;
+      padding-left: $spacing-xl;
+
+      @media (max-width: $breakpoint-md - 1px) {
+        padding-left: $spacing-lg;
+      }
+    }
+  }
+}
+
+.navbar-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: $z-dropdown;
+
+  @include respond-to(md) {
+    display: none;
+  }
+
+  .hamburger {
+    width: 100%;
+    height: 3px;
+    background: $text-primary;
+    border-radius: 2px;
+    transition: all $duration-normal ease;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background: $text-primary;
+      border-radius: 2px;
+      transition: all $duration-normal ease;
+    }
+
+    &::before {
+      top: -10px;
+    }
+
+    &::after {
+      bottom: -10px;
+    }
+
+    &.active {
+      background: transparent;
+
+      &::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+

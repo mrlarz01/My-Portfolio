@@ -1,0 +1,345 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.testimonials {
+  background: $light;
+  position: relative;
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    text-align: center !important;
+    margin-bottom: $spacing-md;
+  }
+
+  .section-description {
+    font-size: $font-size-body;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 600px;
+
+    @include respond-to(sm) {
+      font-size: $font-size-small;
+    }
+  }
+}
+
+.testimonials-carousel {
+  margin-top: $spacing-3xl;
+  position: relative;
+
+  @include respond-to(sm) {
+    margin-top: $spacing-2xl;
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 $spacing-4xl;
+  overflow: visible;
+
+  @include respond-to(lg) {
+    padding: 0 $spacing-3xl;
+  }
+
+  @include respond-to(md) {
+    padding: 0 $spacing-2xl;
+  }
+
+  @include respond-to(sm) {
+    padding: 0 $spacing-xl;
+  }
+}
+
+.testimonial-card-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+
+  @include respond-to(sm) {
+    min-height: auto;
+  }
+}
+
+.testimonial-card {
+  @include card;
+  padding: $spacing-3xl;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  cursor: grab;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include respond-to(md) {
+    padding: $spacing-2xl;
+    min-height: 300px;
+  }
+
+  @include respond-to(sm) {
+    padding: $spacing-xl;
+    min-height: auto;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  .quote-icon {
+    font-size: 3rem;
+    color: rgba(108, 92, 231, 0.2);
+    margin-bottom: $spacing-lg;
+    transition: transform $duration-normal ease, color $duration-normal ease;
+
+    @include respond-to(sm) {
+      font-size: 2rem;
+      margin-bottom: $spacing-md;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      color: rgba(108, 92, 231, 0.3);
+    }
+  }
+
+  .testimonial-content {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: $text-primary;
+    font-style: italic;
+    margin-bottom: $spacing-xl;
+    flex: 1;
+
+    @include respond-to(md) {
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+
+    @include respond-to(sm) {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    margin-top: auto;
+  }
+
+  .author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: $primary;
+    @include flex-center;
+    font-family: $font-heading;
+    font-size: $font-size-h4;
+    font-weight: 700;
+    color: $white;
+    flex-shrink: 0;
+    transition: transform $duration-normal ease, box-shadow $duration-normal ease;
+
+    @include respond-to(sm) {
+      width: 50px;
+      height: 50px;
+      font-size: $font-size-body;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+    }
+  }
+
+  .author-info {
+    flex: 1;
+    min-width: 0;
+
+    .author-name {
+      font-family: $font-heading;
+      font-size: $font-size-body;
+      color: $text-primary;
+      margin-bottom: $spacing-xs;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include respond-to(sm) {
+        font-size: $font-size-small;
+      }
+    }
+
+    .author-role {
+      font-size: $font-size-small;
+      color: $text-secondary;
+      margin: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      @include respond-to(sm) {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(108, 92, 231, 0.1);
+  border: 2px solid rgba(108, 92, 231, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  @include flex-center;
+  color: $primary;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all $duration-normal ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  @include respond-to(md) {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+  }
+
+  @include respond-to(sm) {
+    width: 40px;
+    height: 40px;
+    font-size: 1.125rem;
+  }
+
+  &:hover {
+    background: $primary;
+    color: $white;
+    border-color: $primary;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+
+    @include respond-to(sm) {
+      transform: translateY(-50%) scale(1.05);
+    }
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+
+  &.carousel-button-prev {
+    left: 0;
+
+    @include respond-to(sm) {
+      left: -5px;
+    }
+  }
+
+  &.carousel-button-next {
+    right: 0;
+
+    @include respond-to(sm) {
+      right: -5px;
+    }
+  }
+}
+
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-top: $spacing-2xl;
+  flex-wrap: wrap;
+  padding: 0 $spacing-md;
+
+  @include respond-to(sm) {
+    margin-top: $spacing-xl;
+    gap: $spacing-xs;
+  }
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(108, 92, 231, 0.3);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all $duration-normal ease;
+  position: relative;
+
+  @include respond-to(sm) {
+    width: 10px;
+    height: 10px;
+  }
+
+  &:hover {
+    border-color: $primary;
+    transform: scale(1.2);
+  }
+
+  &.active {
+    background: $primary;
+    border-color: $primary;
+    width: 32px;
+    border-radius: 6px;
+
+    @include respond-to(sm) {
+      width: 24px;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: $primary;
+    opacity: 0;
+    transition: opacity $duration-normal ease;
+  }
+
+  &.active::after {
+    opacity: 0.2;
+    width: 200%;
+    height: 200%;
+  }
+}
+
+.loading-state,
+.no-testimonials {
+  text-align: center;
+  padding: $spacing-3xl;
+  color: $text-secondary;
+  font-size: $font-size-body;
+
+  @include respond-to(sm) {
+    padding: $spacing-2xl;
+    font-size: $font-size-small;
+  }
+}
+

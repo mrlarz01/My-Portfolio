@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.software-skills {
+  margin-bottom: $spacing-4xl;
+
+  .section-title {
+    @include section-title;
+    margin-bottom: $spacing-3xl;
+  }
+}
+
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.software-item {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+  background: $light;
+  border-radius: 12px;
+  transition: all $duration-normal ease;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(108, 92, 231, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .software-icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-sm;
+  }
+
+  .software-name {
+    font-family: $font-body;
+    font-size: $font-size-body;
+    font-weight: 500;
+    color: $text-primary;
+    text-align: center;
+  }
+}
+

@@ -1,0 +1,91 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.education-timeline {
+  margin-bottom: $spacing-4xl;
+
+  .section-title {
+    @include section-title;
+    margin-bottom: $spacing-3xl;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: $spacing-3xl;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: $primary;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: $spacing-3xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -27px;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $primary;
+  border: 3px solid $white;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.2);
+}
+
+.timeline-content {
+  background: $light;
+  padding: $spacing-xl;
+  border-radius: 12px;
+  transition: all $duration-normal ease;
+
+  &:hover {
+    transform: translateX(10px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .timeline-year {
+    display: inline-block;
+    font-size: $font-size-small;
+    color: $primary;
+    font-weight: 600;
+    margin-bottom: $spacing-sm;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .timeline-title {
+    font-family: $font-heading;
+    font-size: $font-size-h4;
+    color: $text-primary;
+    margin-bottom: $spacing-xs;
+  }
+
+  .timeline-subtitle {
+    font-size: $font-size-body;
+    color: $text-secondary;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+  }
+
+  .timeline-description {
+    font-size: $font-size-body;
+    color: $text-secondary;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+

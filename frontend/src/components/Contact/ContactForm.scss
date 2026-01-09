@@ -1,0 +1,98 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.contact-form-container {
+  .form-title {
+    font-family: $font-heading;
+    font-size: $font-size-h2;
+    color: $text-primary;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.contact-form {
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-lg;
+
+    @include respond-to(md) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-group {
+    margin-bottom: $spacing-xl;
+
+    label {
+      display: block;
+      font-family: $font-body;
+      font-size: $font-size-body;
+      font-weight: 500;
+      color: $text-primary;
+      margin-bottom: $spacing-sm;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: $spacing-md $spacing-lg;
+      border: 2px solid rgba(108, 92, 231, 0.2);
+      border-radius: 8px;
+      font-family: $font-body;
+      font-size: $font-size-body;
+      color: $text-primary;
+      background: $dark-secondary;
+      transition: all $duration-normal ease;
+
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+      }
+
+      &::placeholder {
+        color: $text-secondary;
+        opacity: 0.6;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+  }
+
+  .submit-status {
+    padding: $spacing-md $spacing-lg;
+    border-radius: 8px;
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-body;
+
+    &.success {
+      background: rgba(0, 210, 211, 0.1);
+      color: darken($secondary, 20%);
+      border: 1px solid rgba(0, 210, 211, 0.3);
+    }
+
+    &.error {
+      background: rgba(255, 107, 107, 0.1);
+      color: darken($accent, 20%);
+      border: 1px solid rgba(255, 107, 107, 0.3);
+    }
+  }
+
+  .submit-button {
+    @include button-primary;
+    width: 100%;
+    padding: $spacing-lg;
+    font-size: $font-size-body;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}
+

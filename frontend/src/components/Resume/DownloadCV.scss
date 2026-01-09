@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.download-cv {
+  text-align: center;
+  padding: $spacing-4xl 0;
+  background: linear-gradient(135deg, rgba(108, 92, 231, 0.05) 0%, rgba(0, 210, 211, 0.05) 100%);
+  border-radius: 20px;
+  margin-top: $spacing-4xl;
+}
+
+.download-content {
+  max-width: 600px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: $font-heading;
+    font-size: $font-size-h2;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    margin-bottom: $spacing-2xl;
+  }
+}
+
+.download-button {
+  @include button-primary;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: $spacing-lg $spacing-2xl;
+  font-size: $font-size-body;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+

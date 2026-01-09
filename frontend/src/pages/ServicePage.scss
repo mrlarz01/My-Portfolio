@@ -1,0 +1,46 @@
+@import '../styles/variables.scss';
+@import '../styles/mixins.scss';
+
+.service-page {
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.service-header {
+  background: $dark;
+  padding: $spacing-4xl 0;
+  text-align: center;
+
+  .page-title {
+    font-family: $font-heading;
+    font-size: $font-size-h1;
+    color: $text-primary;
+    margin-bottom: $spacing-md;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.service-content {
+  background: $light;
+  padding: $spacing-4xl 0;
+}
+
+.loading-state,
+.error-state,
+.no-projects {
+  text-align: center;
+  padding: $spacing-3xl;
+  color: $text-secondary;
+  font-size: $font-size-body;
+}
+
+.error-state {
+  color: #ff6b6b;
+}
+

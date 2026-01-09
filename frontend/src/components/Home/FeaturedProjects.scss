@@ -1,0 +1,154 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.featured-projects {
+  background: $light;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $spacing-3xl;
+
+  .section-title {
+    @include section-title;
+    text-align: center !important;
+    margin-bottom: $spacing-md;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: $text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-2xl;
+  margin-bottom: $spacing-3xl;
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.project-card {
+  @include card;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+
+  .project-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: $light;
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: $primary;
+      @include flex-center;
+      font-family: $font-heading;
+      font-size: $font-size-h4;
+      color: $white;
+      opacity: 0.8;
+    }
+
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 26, 46, 0.8);
+      @include flex-center;
+      opacity: 0;
+      transition: opacity $duration-normal ease;
+
+      .view-project {
+        color: $white;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        font-size: $font-size-body;
+        text-decoration: none;
+        transition: transform $duration-fast ease;
+
+        &:hover {
+          transform: translateX(5px);
+        }
+      }
+    }
+  }
+
+  &:hover {
+    .project-overlay {
+      opacity: 1;
+    }
+  }
+
+  .project-info {
+    padding: $spacing-xl;
+  }
+
+  .project-category {
+    display: inline-block;
+    font-size: $font-size-small;
+    color: $primary;
+    font-weight: 500;
+    margin-bottom: $spacing-sm;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .project-title {
+    font-family: $font-heading;
+    font-size: $font-size-h4;
+    color: $text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  .project-description {
+    font-size: $font-size-body;
+    color: $text-secondary;
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.view-all {
+  text-align: center;
+}
+
+.loading-state,
+.error-state,
+.no-projects {
+  text-align: center;
+  padding: $spacing-3xl;
+  font-size: $font-size-body;
+  color: $text-secondary;
+  grid-column: 1 / -1;
+}
+
+.error-state {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 8px;
+  padding: $spacing-xl;
+}

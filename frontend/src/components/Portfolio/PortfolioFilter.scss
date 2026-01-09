@@ -1,0 +1,36 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.portfolio-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  justify-content: center;
+  margin-bottom: $spacing-3xl;
+}
+
+.filter-button {
+  padding: $spacing-md $spacing-xl;
+  border: 2px solid rgba(108, 92, 231, 0.2);
+  background: $dark-secondary;
+  border-radius: 30px;
+  font-family: $font-body;
+  font-size: $font-size-body;
+  font-weight: 500;
+  color: $text-primary;
+  cursor: pointer;
+  transition: all $duration-normal ease;
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+
+  &.active {
+    background: $primary;
+    border-color: transparent;
+    color: $white;
+    box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+  }
+}
+
